@@ -18,6 +18,7 @@ function App() {
 
   useEffect(() => {
     const getUsers = async () => {
+      console.log("api url", API_URL);
       try {
         const data = await fetch(API_URL);
         const dataJson = await data.json();
