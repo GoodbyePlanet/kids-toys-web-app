@@ -9,7 +9,7 @@ interface User {
 }
 
 // TODO: Find better solution
-const API_URL = (process.env.NODE_ENV === 'development')
+const API_URL = (process.env.REACT_APP_ENVIRONMENT === 'development')
   ? 'http://localhost:8080/api/users'
   : 'https://kids-toyss.herokuapp.com/api/users';
 
@@ -18,6 +18,7 @@ function App() {
 
   useEffect(() => {
     const getUsers = async () => {
+      console.log("process.env.NODE_ENV", process.env.REACT_APP_ENVIRONMENT);
       console.log("api url", API_URL);
       try {
         const data = await fetch(API_URL);
